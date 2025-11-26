@@ -33,22 +33,24 @@ if (!isset($_SESSION["maxAttempts"])) {
                 <p class='text-justify'><b>Rules:</b> You have to guess in the less number of attempts a number between 0 and 99 extracted casually
                 from the system. Max number of attempts is 5 </p>" . $info .
                 "<label for='attempt' class='block text-md font-medium'>Attempt " .  $_SESSION['attempt'] . ":</label>
-                <input type='number' name='number' min='0' class='w-full bg-sky-200 border border-dark-200 rounded-md w-full focus:outline-none focus:border-sky-500 px-2 py-2'>
-                <input type='submit' value='Try' class='bg-blue-300 text-white font-bold py-2 px-4 rounded mb-5  hover:bg-blue-500'>
+                <input type='number' name='number' min='0' max='99' class='w-full bg-sky-200 border border-dark-200 rounded-md w-full focus:outline-none focus:border-sky-500 px-2 py-2' required>
+                <input type='submit' value='Try' class='bg-blue-500 text-white font-bold py-2 px-4 rounded mb-5  hover:bg-blue-300'>
+                <input type='submit' value='Restart' name='try_again' formnovalidate class='bg-blue-500 text-white font-bold py-2 px-4 rounded mb-5 hover:bg-blue-300'>
             </form>";
         }
         if($_SESSION["status"] == "lose"){
             echo
-            "<p class='text-justify'>Sorry, you have tried many times!</p>" .
-            "<form action='pages/target.php' method='post'>
-                <input type='submit' value='Try again' name='try_again'>
+            "<form action='pages/target.php' method='post'  class='bg-sky-400 px-4 my-32 mx-auto max-w-3xl space-y-2 border border-gray-600 rounded-lg'>
+            <h1 class='text-4xl antialiased font-bold mt-5'>Sorry, you have tried many times! :(</h1>" . $_SESSION["info"] .
+            "<input type='submit' value='Try again' name='try_again' class='bg-blue-500 text-white font-bold py-2 px-4 rounded mb-5  hover:bg-blue-300'>
             </form>";
         }
         if($_SESSION["status"] == "win"){
             echo
-            "<p class='text-justify'>Congratulations! You have won in " . $_SESSION["attempt"]-1 . " attempts!</p>" .
-            "<form action='pages/target.php' method='post'>
-                <input type='submit' value='Try again' name='try_again'>
+            "<form action='pages/target.php' method='post' class='bg-sky-400 px-4 my-32 mx-auto max-w-3xl space-y-2 border border-gray-600 rounded-lg'>
+                <h1 class='text-4xl antialiased font-bold mt-5'>Congratulations!🎉</h1>
+                <p class='text-justify'> You have won in " . $_SESSION["attempt"]-1 . " attempts!</p>
+                <input type='submit' value='Try again' name='try_again' class='bg-blue-500 text-white font-bold py-2 px-4 rounded mb-5  hover:bg-blue-300'>
             </form>";
         }
         ?>

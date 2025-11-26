@@ -38,6 +38,7 @@ if($number == $_SESSION["random"]){
 }
 if($_SESSION["maxAttempts"] == 0){
     $_SESSION["status"] = "lose";
+    $_SESSION["info"] = "<p class='text-justify'>The number was: <b>" . $_SESSION["random"] . "</b></p>";
     header("Location: ../index.php");
     exit;
 }
