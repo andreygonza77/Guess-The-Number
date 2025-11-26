@@ -21,6 +21,7 @@ if (!isset($_SESSION["maxAttempts"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guess the number</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
 </head>
 
 <body class="bg-sky-300">
