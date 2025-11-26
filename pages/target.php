@@ -43,12 +43,12 @@ if($_SESSION["maxAttempts"] == 0){
 }
 
 if($number > $_SESSION["random"]){
-    $_SESSION["info"] = "The number you have written is bigger, " . $_SESSION["maxAttempts"] . " attempts left";
+    $_SESSION["info"] = "<p class='text-justify'>The number you have written is bigger, " . $_SESSION["maxAttempts"] . " attempts left</p>";
     header("Location: ../index.php");
     exit;
 }
 if($number < $_SESSION["random"]){
-    $_SESSION["info"] = "The number you have written is smaller, " . $_SESSION["maxAttempts"] . " attempts left";
+    $_SESSION["info"] = "<p class='text-justify'>The number you have written is smaller, " . $_SESSION["maxAttempts"] . " attempts left</p>";
     header("Location: ../index.php");
     exit;
 }

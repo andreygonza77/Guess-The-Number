@@ -19,22 +19,22 @@ if (!isset($_SESSION["maxAttempts"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<!--<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>-->
+    <title>Guess the number</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body>
+<body class="bg-sky-300">
     <div class="container mx-auto">
-        <p class='text-center text-2xl antialiased'><b>Guess the number</b></p>
         <?php
         if($_SESSION["status"] == "playing"){
             echo 
-            "<p class='text-justify'><b>Rules:</b> You have to guess in the less number of attempts a number between 0 and 99 extracted casually
-                from the system.</p>" . $info .
-            "<form action='pages/target.php' method='post'>
-                <label for='attempt'>Attempt " .  $_SESSION['attempt'] . ":</label>
-                <input type='number' name='number'>
-                <input type='submit' value='Try'>
+            "<form action='pages/target.php' method='post' class='bg-sky-400 px-4 my-32 mx-auto max-w-3xl space-y-2 border border-gray-600 rounded-lg'>
+                <h1 class='text-center text-4xl antialiased font-bold mt-5'>Guess the number</h1>
+                <p class='text-justify'><b>Rules:</b> You have to guess in the less number of attempts a number between 0 and 99 extracted casually
+                from the system. Max number of attempts is 5 </p>" . $info .
+                "<label for='attempt' class='block text-md font-medium'>Attempt " .  $_SESSION['attempt'] . ":</label>
+                <input type='number' name='number' min='0' class='w-full bg-sky-200 border border-dark-200 rounded-md w-full focus:outline-none focus:border-sky-500 px-2 py-2'>
+                <input type='submit' value='Try' class='bg-blue-300 text-white font-bold py-2 px-4 rounded mb-5  hover:bg-blue-500'>
             </form>";
         }
         if($_SESSION["status"] == "lose"){
@@ -52,8 +52,6 @@ if (!isset($_SESSION["maxAttempts"])) {
             </form>";
         }
         ?>
-
-        
     </div>
 </body>
 
